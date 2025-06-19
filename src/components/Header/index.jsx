@@ -1,16 +1,42 @@
-import React from "react";
-import "./style.css";
-
+import React, { useEffect } from "react";
+import "./styles.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
+import userSvg from "../../assets/user.svg";
 function Header() {
-  function logoutFnc() {
-    alert("Logout!");
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
+  function logout() {
+    auth.signOut();
+    navigate("/");
   }
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    } else {
+      navigate("/dashboard");
+    }
+  }, [user, navigate]);
+
   return (
     <div className="navbar">
-      <p className="logo">Ledger IQ</p>
-      <p className="link" onClick={logoutFnc}>
-        Logout
-      </p>
+      <p className="navbar-heading">LedgerIQ</p>
+      {user ? (
+        <p className="navbar-link" onClick={logout}>
+          <span style={{ marginRight: "1rem" }}>
+            <img
+              src={user.photoURL ? user.photoURL : userSvg}
+              width={user.photoURL ? "32" : "24"}
+              style={{ borderRadius: "50%" }}
+            />
+          </span>
+          Logout
+        </p>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
