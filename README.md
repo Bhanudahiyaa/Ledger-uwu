@@ -35,11 +35,6 @@ LedgerIQ is a modern finance tracking web application that helps users manage th
 
 ---
 
-## 📸 Screenshots
-
-*(Include some screenshots here, e.g., dashboard, login page, charts.)*
-
----
 
 ## 📦 Installation
 
