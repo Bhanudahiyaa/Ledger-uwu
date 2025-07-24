@@ -1,4 +1,4 @@
-# 💰 LedgerIQ – Smart Personal Finance Tracker
+# 💰 LedgerIQ–Smart Personal Finance Tracker
 
 LedgerIQ is a modern finance tracking web application that helps users manage their income and expenses with intuitive data visualizations. Built with **React** and **Firebase**, it offers secure authentication, CSV import/export, and clean, responsive charts for clear financial insights.
 
